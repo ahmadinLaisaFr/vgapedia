@@ -35,11 +35,12 @@
     </div>
     <section class="mt-5 mx-auto container">
         <div class="px-5">
-            <h1 class="text-2xl md:text-3xl text-center font-medium text-gray-800">SELAMAT DATANG DI VGAPEDIA</h1>
+            <h1 class="text-2xl md:text-3xl text-center font-medium text-gray-800">SELAMAT DATANG</h1>
             <p class="text-center text-slate-600 text-md md:text-lg font-thin">Dapatkan VGA atau Komponen PC mu dengan harga terbaik!</p>
         </div>
         <div class="py-10 px-5">
             <div>
+                {{-- produk kami --}}
                 <div class="bg-tersier md:py-1">
                     <p class="font-semibold text-lg md:text-2xl text-slate-100 text-center align-middle">Produk Kami</p>
                 </div>
@@ -123,6 +124,7 @@
             </div>
         </div>
         <div class="py-10 px-5">
+            {{-- kategori --}}
             <div>
                 <div class="bg-tersier md:py-1">
                     <p class="font-semibold text-lg md:text-2xl text-slate-100 text-center align-middle">Kategori</p>

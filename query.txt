@@ -1,0 +1,25 @@
+INSERT INTO `produks` (`id`, `kategori_id`, `name`, `slug`, `short_description`, `description`, `purpose`, `regular_price`, `sale_price`, `item_code`, `image`, `created_at`, `updated_at`) VALUES (NULL, '1', 'MSI R5 230', 'msi-r5-230', 'vga low end', 'vga low end murah yang cocok untuk gaming ringan dan beberapa pekerjaan kantor atau sekolah\r\n\r\nspek :\r\nCore speed = 625 MHz\r\nMemory Freq = 1066 MHz\r\nMemory Type = GDDR3\r\nMemory Capacity = 1GB\r\nBus Width = 64bit', '', '300000', '250000', 'dabsuydq738e30egdsaeqeuqey981u', 'r5_230.png', NULL, NULL), (NULL, '3', 'ASUS B460M-K', 'asusb460mk', 'mobo gaming mid-end to high-end yang berkualitas tinggi', 'spek dewa hermes kang\r\n\r\nspek :\r\nsoket prosesor = LGA1200\r\nslot ram = 2\r\nchipset = intel b460 chipset\r\n1 slot pciE 3.0 x 16', '', '1.400.000', '1.200.000', 'feijhdiuafabf98e3ruebdasdd', 'b460mk.png', NULL, NULL), (NULL, '3', 'INTEL I7 11700KF', 'inteli7g11', 'prosesor high end gilak banget ', 'prosesor i7 generasi ke 11\r\n\r\nSoket : FCLGA1200\r\nSegmen : desktop\r\nNomor prosesor : i7-11700KF\r\nLitografi = 14nm\r\nCore/Thread = 8/16\r\nFrekuensi dasar = 3,60 GHz\r\nFrekuensi turbo maks = 5,00 GHz\r\nCache = 16MB Intel Smart Cache\r\nTDP = 125 WATT\r\nKecepatan Bus = 8GT/s\r\nJenis memori = DDR4-3200\r\nmaksimum saluran memori = 2 saluran', '', '5000.000', '4.500.000', 'qhdg9y381hsqyd9qwhdqdq3ue839ue', 'inteli7gen11.png', NULL, NULL);
+
+INSERT INTO `kategoris` (`id`, `name`, `slug`, `image`, `created_at`, `updated_at`) VALUES (NULL, 'VGA', 'vga', 'vga.jpg', NULL, NULL), (NULL, 'MOTHERBOARD', 'mobo', 'mobo.jpg', NULL, NULL), (NULL, 'Prosesor', 'cpu', 'cpu.jpg', NULL, NULL);
+
+
+$table->id();
+$table->foreignId('kategori_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+$table->string('name');
+$table->string('slug');
+$table->bigInteger('core_freq');
+$table->bigInteger('memory_freq');
+$table->string('memory_type');
+$table->string('memory_cap');
+$table->string('memory_width');
+$table->string('power_conn');
+$table->string('description');
+$table->string('purpose');
+$table->string('image');
+$table->timestamps();
+
+$table->id();
+$table->string('name');
+$table->string('slug');
+$table->string('image');
+$table->timestamps();

@@ -15,15 +15,15 @@ return new class extends Migration
     {
         Schema::create('produks', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('kategori_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->string('name');
             $table->string('slug');
-            $table->bigInteger('core_freq');
-            $table->bigInteger('memory_freq');
-            $table->string('memory_type');
-            $table->string('memory_cap');
-            $table->string('memory_width');
-            $table->string('power_conn');
+            $table->text('short_description');
+            $table->text('description');
             $table->string('purpose');
+            $table->float('regular_price');
+            $table->float('sale_price');
+            $table->text('item_code');
             $table->string('image');
             $table->timestamps();
         });

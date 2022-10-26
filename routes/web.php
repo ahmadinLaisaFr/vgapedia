@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\ProdukController;
 /*
 |--------------------------------------------------------------------------
@@ -17,4 +18,7 @@ use App\Http\Controllers\ProdukController;
 Route::get('/', [HomeController::class, 'index']);
 // shop section
 Route::get('/produk', [ProdukController::class, 'index'])->name('product');
-Route::get('/produk/edit/{produk:slug}', [ProdukController::class, 'index'])->name('update.product');
+
+// kategori section
+Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori');
+Route::get('/kategori/{kategori:slug}', [KategoriController::class, 'show'])->name('kategori.detail');
