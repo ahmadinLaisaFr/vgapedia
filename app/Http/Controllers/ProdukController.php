@@ -9,8 +9,13 @@ class ProdukController extends Controller
 {
     public function index()
     {
-        $mydata['products'] = produk::all();
-        $mydata['title'] = env('APP_NAME')." | Halaman Produk";
+        $mydata['title'] = "VGAPEDIA | Halaman Produk";
+        $mydata['produks'] = $this->getAll('produks');
         return view('produk', $mydata);
+    }
+
+    public function show()
+    {
+        return 'show';
     }
 }

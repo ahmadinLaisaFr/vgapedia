@@ -18,13 +18,12 @@ return new class extends Migration
             $table->foreignId('kategori_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->string('name');
             $table->string('slug');
-            $table->text('short_description');
-            $table->text('description');
-            $table->string('purpose');
+            $table->text('short_description')->nullable();
+            $table->text('description')->nullable();
             $table->float('regular_price');
-            $table->float('sale_price');
-            $table->text('item_code');
-            $table->string('image');
+            $table->float('sale_price')->nullable();
+            $table->text('item_code')->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

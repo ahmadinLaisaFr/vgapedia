@@ -17,7 +17,8 @@ use App\Http\Controllers\ProdukController;
 
 Route::get('/', [HomeController::class, 'index']);
 // shop section
-Route::get('/produk', [ProdukController::class, 'index'])->name('product');
+Route::get('/produk', [ProdukController::class, 'index'])->name('produk');
+Route::get('/produk/{produk:slug}', [ProdukController::class, 'show'])->name('produk.detail');
 
 // kategori section
 Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori');

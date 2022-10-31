@@ -1,5 +1,4 @@
 @extends('layout.template')
-
 @section('content')
     {{-- homeImage --}}
     <div class="flex flex-col md:flex-row items-center bg-primer border-t">
@@ -33,182 +32,99 @@
             </div>
         </div>
     </div>
-    <section class="mt-5 mx-auto container">
-        <div class="px-5">
-            <h1 class="text-2xl md:text-3xl text-center font-medium text-gray-800">SELAMAT DATANG</h1>
-            <p class="text-center text-slate-600 text-md md:text-lg font-thin">Dapatkan VGA atau Komponen PC mu dengan harga terbaik!</p>
-        </div>
+    {{-- welcome --}}
+    <div class="px-5">
+        <h1 class="text-2xl md:text-3xl text-center font-medium text-gray-800">SELAMAT DATANG</h1>
+        <p class="text-center text-slate-600 text-md md:text-lg font-thin">Dapatkan VGA atau Komponen PC mu dengan harga terbaik!</p>
+    </div>
+    {{-- produk --}}
+    <div class="mt-5 mx-auto container">
         <div class="py-10 px-5">
-            <div>
+            <div class="">
                 {{-- produk kami --}}
                 <div class="bg-tersier md:py-1">
                     <p class="font-semibold text-lg md:text-2xl text-slate-100 text-center align-middle">Produk Kami</p>
                 </div>
                 {{-- card section --}}
-                <div class="border-2 border-slate-300 py-10">
-                    <div class="grid xs:grid-rows-4 md:grid-cols-4 gap-y-10">
-                        {{-- card --}}
-                        <div class=" h-fit shadow-2xl w-4/5 mx-auto rounded-md transform transition duration-300 hover:scale-110">
-                            {{-- card image --}}
-                            <img class="h-48 w-full object-cover rounded-t-md" src="{{ asset('images/homePicture/pc.jpg') }}" alt="">
-                            <div class="m-5">
+                <div class="border-2 p-6 md:p-10 border-slate-300">
+                    <div class="grid xs:grid-cols-1 md:grid-cols-4 gap-10">
+                        {{-- card section --}}               
+                            {{-- card --}}
+                            @foreach ($produks as $produk)
+                            <div class="h-fit shadow-xl w-full mx-auto transform transition duration-300 hover:scale-110">
+                                {{-- card image --}}
+                                <img class="h-48 w-full object-contain" src="{{ asset('images/upload/produk') }}/{{ $produk->image }}" alt="">
                                 {{-- card name --}}
-                                <p class="text-lg font-medium">Lorem</p>
-                                {{-- card desc --}}
-                                <p class="text-base font-light md:text-lg">
-                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit
-                                </p>
-                                {{-- card button --}}
-                                <div class="my-5">
-                                    <a class="px-4 py-2 text-white hover:bg-primer-gelap bg-primer rounded-full" href="#">Detail</a>
+                                <p class="mx-5 text-lg font-medium">{{ $produk->name }}</p>
+                                <div class="mx-5 border-t border-tersier h-20 md:h-24 overflow-auto">
+                                    {{-- card desc --}}
+                                    <p class="text-base font-light md:text-lg">
+                                        {{ $produk->short_description }}
+                                    </p>
                                 </div>
-                            </div>
-                        </div>
-                        {{-- card --}}
-                        <div class=" h-fit shadow-2xl w-4/5 mx-auto rounded-md transform transition duration-300 hover:scale-110">
-                            {{-- card image --}}
-                            <img class="h-48 w-full object-cover rounded-t-md" src="{{ asset('images/homePicture/pc.jpg') }}" alt="">
-                            <div class="m-5">
-                                {{-- card name --}}
-                                <p class="text-lg font-medium">Lorem</p>
-                                {{-- card desc --}}
-                                <p class="text-base font-light md:text-lg">
-                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit
-                                </p>
-                                {{-- card button --}}
-                                <div class="my-5">
-                                    <a class="px-4 py-2 text-white hover:bg-primer-gelap bg-primer rounded-full" href="#">Detail</a>
+                                <div class="mx-5">
+                                    <span class=" font-medium text-xl">Rp. {{ $produk->regular_price }}</span>
                                 </div>
-                            </div>
-                        </div>
-                        {{-- card --}}
-                        <div class=" h-fit shadow-2xl w-4/5 mx-auto rounded-md transform transition duration-300 hover:scale-110">
-                            {{-- card image --}}
-                            <img class="h-48 w-full object-cover rounded-t-md" src="{{ asset('images/homePicture/pc.jpg') }}" alt="">
-                            <div class="m-5">
-                                {{-- card name --}}
-                                <p class="text-lg font-medium">Lorem</p>
-                                {{-- card desc --}}
-                                <p class="text-base font-light md:text-lg">
-                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit
-                                </p>
-                                {{-- card button --}}
-                                <div class="my-5">
-                                    <a class="px-4 py-2 text-white hover:bg-primer-gelap bg-primer rounded-full" href="#">Detail</a>
+                                <div class="m-5">
+                                    <a class="px-4 py-2 text-white hover:bg-primer-gelap bg-primer rounded-full" href="{{ route('produk.detail', ['produk' => $produk->slug]) }}">Detail</a>
                                 </div>
-                            </div>
-                        </div>
-                        {{-- card --}}
-                        <div class=" h-fit shadow-2xl w-4/5 mx-auto rounded-md transform transition duration-300 hover:scale-110">
-                            {{-- card image --}}
-                            <img class="h-48 w-full object-cover rounded-t-md" src="{{ asset('images/homePicture/pc.jpg') }}" alt="">
-                            <div class="m-5">
-                                {{-- card name --}}
-                                <p class="text-lg font-medium">Lorem</p>
-                                {{-- card desc --}}
-                                <p class="text-base font-light md:text-lg">
-                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit
-                                </p>
                                 {{-- card button --}}
-                                <div class="my-5">
-                                    <a class="px-4 py-2 text-white hover:bg-primer-gelap bg-primer rounded-full" href="#">Detail</a>
-                                </div>
                             </div>
+                            @endforeach
                         </div>
-                    </div>
-                    <div class="mt-10 mx-auto w-fit">
-                        {{-- <a href="#" class="px-4 py-2 text-white hover:bg-biru bg-blue-900 rounded-full">Lainnya . . .</a> --}}
-                        <button class="px-4 py-2 text-white hover:bg-primer-gelap bg-primer rounded-full"><a href="#">Lainnya . . .</a></button>
+                        <div class="mt-10 mx-auto w-fit">
+                            {{-- <a href="#" class="px-4 py-2 text-white hover:bg-biru bg-blue-900 rounded-full">Lainnya . . .</a> --}}
+                            <button class="px-4 py-2 text-white hover:bg-primer-gelap bg-primer rounded-full"><a href="{{ route('produk') }}">Lainnya . . .</a></button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    {{-- kategori --}}
+    <div class="mt-5 mx-auto container">
         <div class="py-10 px-5">
-            {{-- kategori --}}
-            <div>
+            <div class="">
+                {{-- Kategori --}}
                 <div class="bg-tersier md:py-1">
-                    <p class="font-semibold text-lg md:text-2xl text-slate-100 text-center align-middle">Kategori</p>
+                    <p class="font-semibold text-lg md:text-2xl text-slate-100 text-center align-middle">Produk Kami</p>
                 </div>
                 {{-- card section --}}
-                <div class="border-2 border-slate-300 py-10">
-                    <div class="grid xs:grid-rows-4 md:grid-cols-4 gap-y-10">
-                        {{-- card --}}
-                        <div class=" h-fit shadow-2xl w-4/5 mx-auto rounded-md transform transition duration-300 hover:scale-110">
-                            {{-- card image --}}
-                            <img class="h-48 w-full object-cover rounded-t-md" src="{{ asset('images/homePicture/pc2.jpg') }}" alt="">
-                            <div class="m-5">
+                <div class="border-2 p-6 md:p-10 border-slate-300">
+                    <div class="grid xs:grid-cols-1 md:grid-cols-4 gap-10">
+                        {{-- card section --}}               
+                            {{-- card --}}
+                            @foreach ($produks as $produk)
+                            <div class="h-fit shadow-xl w-full mx-auto transform transition duration-300 hover:scale-110">
+                                {{-- card image --}}
+                                <img class="h-48 w-full object-contain" src="{{ asset('images/upload/produk') }}/{{ $produk->image }}" alt="">
                                 {{-- card name --}}
-                                <p class="text-lg font-medium">Lorem</p>
-                                {{-- card desc --}}
-                                <p class="text-base font-light md:text-lg">
-                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit
-                                </p>
-                                {{-- card button --}}
-                                <div class="my-5">
-                                    <a class="px-4 py-2 text-white hover:bg-primer-gelap bg-primer rounded-full" href="#">Detail</a>
+                                <p class="mx-5 text-lg font-medium">{{ $produk->name }}</p>
+                                <div class="mx-5 border-t border-tersier h-20 md:h-24 overflow-auto">
+                                    {{-- card desc --}}
+                                    <p class="text-base font-light md:text-lg">
+                                        {{ $produk->short_description }}
+                                    </p>
                                 </div>
-                            </div>
-                        </div>
-                        {{-- card --}}
-                        <div class=" h-fit shadow-2xl w-4/5 mx-auto rounded-md transform transition duration-300 hover:scale-110">
-                            {{-- card image --}}
-                            <img class="h-48 w-full object-cover rounded-t-md" src="{{ asset('images/homePicture/pc2.jpg') }}" alt="">
-                            <div class="m-5">
-                                {{-- card name --}}
-                                <p class="text-lg font-medium">Lorem</p>
-                                {{-- card desc --}}
-                                <p class="text-base font-light md:text-lg">
-                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit
-                                </p>
-                                {{-- card button --}}
-                                <div class="my-5">
-                                    <a class="px-4 py-2 text-white hover:bg-primer-gelap bg-primer rounded-full" href="#">Detail</a>
+                                <div class="mx-5">
+                                    <span class=" font-medium text-xl">Rp. {{ $produk->regular_price }}</span>
                                 </div>
-                            </div>
-                        </div>
-                        {{-- card --}}
-                        <div class=" h-fit shadow-2xl w-4/5 mx-auto rounded-md transform transition duration-300 hover:scale-110">
-                            {{-- card image --}}
-                            <img class="h-48 w-full object-cover rounded-t-md" src="{{ asset('images/homePicture/pc2.jpg') }}" alt="">
-                            <div class="m-5">
-                                {{-- card name --}}
-                                <p class="text-lg font-medium">Lorem</p>
-                                {{-- card desc --}}
-                                <p class="text-base font-light md:text-lg">
-                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit
-                                </p>
-                                {{-- card button --}}
-                                <div class="my-5">
-                                    <a class="px-4 py-2 text-white hover:bg-primer-gelap bg-primer rounded-full" href="#">Detail</a>
+                                <div class="m-5">
+                                    <a class="px-4 py-2 text-white hover:bg-primer-gelap bg-primer rounded-full" href="{{ route('produk.detail', ['produk' => $produk->slug]) }}">Detail</a>
                                 </div>
-                            </div>
-                        </div>
-                        {{-- card --}}
-                        <div class=" h-fit shadow-2xl w-4/5 mx-auto rounded-md transform transition duration-300 hover:scale-110">
-                            {{-- card image --}}
-                            <img class="h-48 w-full object-cover rounded-t-md" src="{{ asset('images/homePicture/pc2.jpg') }}" alt="">
-                            <div class="m-5">
-                                {{-- card name --}}
-                                <p class="text-lg font-medium">Lorem</p>
-                                {{-- card desc --}}
-                                <p class="text-base font-light md:text-lg">
-                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit
-                                </p>
                                 {{-- card button --}}
-                                <div class="my-5">
-                                    <a class="px-4 py-2 text-white hover:bg-primer-gelap bg-primer rounded-full" href="#">Detail</a>
-                                </div>
                             </div>
+                            @endforeach
                         </div>
-                    </div>
-                    <div class="mt-10 mx-auto w-fit">
-                        {{-- <a href="#" class="px-4 py-2 text-white hover:bg-biru bg-blue-900 rounded-full">Lainnya . . .</a> --}}
-                        <button class="px-4 py-2 text-white hover:bg-primer-gelap bg-primer rounded-full"><a href="#">Lainnya . . .</a></button>
+                        <div class="mt-10 mx-auto w-fit">
+                            {{-- <a href="#" class="px-4 py-2 text-white hover:bg-biru bg-blue-900 rounded-full">Lainnya . . .</a> --}}
+                            <button class="px-4 py-2 text-white hover:bg-primer-gelap bg-primer rounded-full"><a href="{{ route('produk') }}">Lainnya . . .</a></button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
     {{-- about --}}
     <div class="mt-16">

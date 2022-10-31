@@ -11,8 +11,9 @@ class KategoriController extends Controller
 {
     public function index()
     {
-        $mydata['kategoris'] = kategori::all();
         $mydata['title'] = "VGAPEDIA | Halaman Kategori";
+        // print_r($this->getAll('kategoris'));die;
+        $mydata['kategoris'] = $this->getAll('kategoris');
         return view('kategori', $mydata);
     }
 

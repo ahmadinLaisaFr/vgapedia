@@ -11,7 +11,7 @@
                     <div class="dropdown-content -left-[130px]">
                         <div class="border-b border-tersier border-opacity-60">
                             <a href="{{ route('kategori') }}">Kategori</a>
-                            <a href="{{ route('product') }}">Product</a>
+                            <a href="{{ route('produk') }}">Produk</a>
                         </div>
                         <div>
                             <a href="#">Login</a>
@@ -52,7 +52,7 @@
 </nav>
 <div class="bg-gray-900 py-2 hidden md:block">
     <ul class=" text-slate-100 text-xl font-semibold text-left align-middle px-10">
-        <li class="inline"><a href="{{ route('product') }}" class="hover:text-slate-300 border-x px-2">Produk</a></li>
+        <li class="inline"><a href="{{ route('produk') }}" class="hover:text-slate-300 border-x px-2">Produk</a></li>
         <li class="inline"><a href="{{ route('kategori') }}" class="hover:text-slate-300 border-x px-2">Kategori</a></li>
     </ul>
 </div>

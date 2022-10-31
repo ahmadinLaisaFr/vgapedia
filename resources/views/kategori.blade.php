@@ -12,7 +12,7 @@
                 {{-- card section --}}               
                     {{-- card --}}
                     @foreach ($kategoris as $kategori)
-                    <div class="h-fit shadow-2xl w-full mx-auto transform transition duration-300 hover:scale-110">
+                    <div class="h-fit shadow-xl w-full mx-auto transform transition duration-300 hover:scale-110">
                         {{-- card image --}}
                         <a class="" href="{{ route('kategori.detail', ['kategori' => $kategori->slug]) }}"><img class="h-48 w-full object-fill" src="{{ asset('images/upload/kategori') }}/{{ $kategori->image }}" alt=""></a>
                         <div class="m-5 border-t border-tersier">
